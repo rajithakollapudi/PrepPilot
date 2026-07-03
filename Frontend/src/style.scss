@@ -1,0 +1,119 @@
+@use "./style/button.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+
+// Premium Color Palette - V3.3 Optimized
+$primary: #ff6b00; // Vibrant Orange
+$primary-light: #ff7d20;
+$primary-extra-light: rgba(255, 107, 0, 0.1);
+$primary-dark: #cc5600;
+$bg-primary: #000000;
+$bg-secondary: #050505;
+$bg-card: rgba(10, 10, 10, 0.6);
+$text-primary: #ffffff;
+$text-secondary: #f0f0f0;
+$text-tertiary: #a1a1a1;
+$text-orange: #ff7d20;
+$border-color: rgba(255, 107, 0, 0.15);
+$accent-gradient: linear-gradient(135deg, $primary 0%, #ff8c00 100%);
+
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+$shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+$shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    height: 100%;
+    width: 100%;
+    background: $bg-primary;
+    color: $text-primary;
+    font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    min-height: 100vh;
+}
+
+// Scrollbar Styling
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $primary;
+    border-radius: 10px;
+    border: 2px solid #000;
+
+    &:hover {
+        background: $primary-light;
+    }
+}
+
+// Firefox support
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $primary #000;
+}
+
+code, pre, textarea {
+    font-family: 'Google Sans Code', monospace;
+    font-size: 0.9em;
+}
+
+.highlight {
+    background: $accent-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.15);
+        transform: translateY(-2px);
+    }
+}
+
+.mesh-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: radial-gradient(circle at 20% 30%, rgba($primary, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+// Icon Utilities
+.icon-orange { color: #ff6b00; }
+.icon-purple { color: #a855f7; }
+.icon-pink { color: #ff6b00; } // Fallback for legacy
+.icon-blue { color: #3b82f6; }
+.icon-green { color: #10b981; }
+.icon-yellow { color: #f59e0b; }
+.icon-red { color: #ef4444; }

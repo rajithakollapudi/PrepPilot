@@ -1,0 +1,148 @@
+@use "sass:color";
+@use "../../style.scss" as *;
+
+.auth-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+    background: #000;
+    font-family: 'Inter', sans-serif;
+
+    .mesh-bg {
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at 50% 0%, rgba($primary, 0.12), transparent 70%);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .form-container {
+        width: 100%;
+        max-width: 440px;
+        padding: 56px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 28px;
+        backdrop-filter: blur(40px);
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        position: relative;
+        z-index: 10;
+        box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+        animation: premiumEntrance 1s cubic-bezier(0.16, 1, 0.3, 1);
+
+        .auth-header {
+            text-align: center;
+            .home-title { 
+                font-size: 2.25rem; 
+                font-weight: 400;
+                letter-spacing: -0.04em;
+                margin-bottom: 12px;
+                color: #fff;
+                
+                .highlight {
+                    background: linear-gradient(135deg, $primary, #ffc000);
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+            .home-subtitle { 
+                font-size: 1rem; 
+                color: #888;
+                line-height: 1.5;
+                font-weight: 300;
+            }
+        }
+    }
+
+    .auth-form {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            label {
+                font-size: 0.85rem;
+                font-weight: 300;
+                color: #999;
+                margin-left: 2px;
+            }
+
+            input {
+                width: 100%;
+                height: 52px;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 14px;
+                padding: 0 20px;
+                color: #fff;
+                font-size: 1rem;
+                font-weight: 300;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+                &:focus {
+                    outline: none;
+                    border-color: rgba($primary, 0.4);
+                    background: rgba(255, 255, 255, 0.05);
+                    box-shadow: 0 0 0 4px rgba($primary, 0.05);
+                }
+
+                &::placeholder {
+                    color: #444;
+                }
+            }
+        }
+
+        .primary-button {
+            margin-top: 12px;
+            height: 54px;
+            font-weight: 400;
+            font-size: 1rem;
+            border-radius: 100px;
+            background: $primary;
+            color: #000;
+            border: none;
+            transition: all 0.3s;
+
+            &:hover {
+                transform: translateY(-2px);
+                background: color.adjust($primary, $lightness: 5%);
+            }
+        }
+    }
+
+    .auth-footer {
+        text-align: center;
+        font-size: 0.95rem;
+        color: #666;
+        font-weight: 300;
+
+        .highlight {
+            color: $primary;
+            text-decoration: none;
+            margin-left: 6px;
+            transition: all 0.3s;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.8;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+@keyframes premiumEntrance {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
